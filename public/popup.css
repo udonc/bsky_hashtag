@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --c-blue: #0085ff;
+  --c-bg-100: #001b35;
+  --c-bg-200: #002c4a;
+  --c-border: #ffffff33;
+  --c-white: #f5f5f5;
+}
+
+body {
+  width: 400px;
+  background-color: var(--c-bg-100);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  color: var(--c-white);
+  font-size: 24px;
+  text-align: center;
+  padding-block: 16px;
+}
+
+.title > .hashtag {
+  color: var(--c-blue);
+  text-decoration: underline;
+}
+
+.author {
+  padding-inline: 16px;
+  h2 {
+    font-size: 20px;
+    color: #1e90ff;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+  background-color: var(--c-bg-200);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  align-items: center;
+}
+
+.avatar-and-name-text {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+}
+
+.name-text {
+  color: var(--c-white);
+  text-align: center;
+}
+
+.bubble {
+  padding: 8px;
+  color: var(--c-white);
+  font-size: 14px;
+}
+
+.bubble-text {
+  color: var(--c-white);
+  font-size: 14px;
+}
+
+.link-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--c-border);
+  list-style-type: none;
+}
+
+.link-list-icon {
+  display: inline;
+  width: 14px;
+  fill: currentColor;
+}
+
+.link-list-item {
+  display: flex;
+  color: var(--c-white);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.link-list-item:nth-child(odd) {
+  border-right: 1px solid var(--c-border);
+}
+
+.link-list-item > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  color: var(--c-white);
+  text-decoration: none;
+}
+
+.link-list-item > a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.footer > small {
+  color: var(--c-white);
+  font-size: 12px;
+}
+
+.footer > a {
+  color: var(--c-white);
+  font-size: 12px;
+  text-decoration: underline;
+}
