@@ -17,6 +17,11 @@ const manifest = defineManifest({
 			css: ["index.css"],
 		},
 	],
+	icons: {
+		32: "icons/icon_32.png",
+		64: "icons/icon_64.png",
+		128: "icons/icon_128.png",
+	}
 });
 
 export default defineConfig({
