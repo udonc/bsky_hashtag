@@ -7,7 +7,8 @@ const manifest = defineManifest({
 	name: "Bluesky Hashtag Linker",
 	version: "0.1.0",
 	action: {
-		default_title: "Open a new tab",
+		default_title: "BlueSky Hashtag Linker",
+		default_popup: "popup.html",
 	},
 	content_scripts: [
 		{
