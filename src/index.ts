@@ -26,10 +26,6 @@ const linkHashtags = (element: HTMLElement) => {
 };
 
 const onPostListMutate: MutationCallback = (mutations) => {
-	console.debug(
-		"[Bluesky Hashtag Linker] Post list mutated, linking hashtags.",
-	);
-
 	for (const mutation of mutations) {
 		if (mutation.type === "childList") {
 			for (const node of Array.from(mutation.addedNodes)) {
