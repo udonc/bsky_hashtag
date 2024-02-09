@@ -1,27 +1,30 @@
 import { replaceHashtags } from "./util";
 
+const postTextSelector =
+	'[data-testid="postText"]:not([data-bluesky-hashtag-linker="true"]), [data-testid^="postThreadItem"]:not([data-bluesky-hashtag-linker="true"]) > :last-child > :first-child > :first-child > :first-child';
+
 const linkHashtags = (element: HTMLElement) => {
-	const postTextElement = element.querySelector<HTMLDivElement>(
-		'[data-testid="postText"]:not([data-bluesky-hashtag-linker="true"]), [data-testid^="postThreadItem"]:not([data-bluesky-hashtag-linker="true"]) > :last-child > :first-child > :first-child > :first-child',
-	);
-	if (!postTextElement) return;
+	const postTextElements =
+		element.querySelectorAll<HTMLDivElement>(postTextSelector);
 
-	postTextElement.dataset.bskyHashtagLinker = "true";
+	for (const postTextElement of Array.from(postTextElements)) {
+		postTextElement.dataset.bskyHashtagLinker = "true";
 
-	const text = postTextElement.innerHTML;
-	const replaced = replaceHashtags(text);
+		const text = postTextElement.innerHTML;
+		const replaced = replaceHashtags(text);
 
-	postTextElement.innerHTML = replaced;
+		postTextElement.innerHTML = replaced;
 
-	const anchors = Array.from(postTextElement.querySelectorAll("a")); // Convert NodeListOf<HTMLAnchorElement> to an array
+		const anchors = Array.from(postTextElement.querySelectorAll("a")); // Convert NodeListOf<HTMLAnchorElement> to an array
 
-	for (const anchor of anchors) {
-		anchor.classList.add("bsky-hashtag-linker__hashtag");
-		anchor.addEventListener("click", (event) => {
-			event.preventDefault();
-			event.stopPropagation();
-			window.open(anchor.href, anchor.target || "_self");
-		});
+		for (const anchor of anchors) {
+			anchor.classList.add("bsky-hashtag-linker__hashtag");
+			anchor.addEventListener("click", (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				window.open(anchor.href, anchor.target || "_self");
+			});
+		}
 	}
 };
 
