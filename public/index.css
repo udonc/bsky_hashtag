@@ -1,0 +1,10 @@
+.bsky-hashtag-linker__hashtag {
+  color: rgb(16, 131, 254);
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.bsky-hashtag-linker__hashtag:hover {
+  text-decoration: underline;
+}

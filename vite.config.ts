@@ -9,9 +9,13 @@ const manifest = defineManifest({
 	action: {
 		default_title: "Open a new tab",
 	},
-	background: {
-		service_worker: "src/background/index.ts",
-	},
+	content_scripts: [
+		{
+			matches: ["https://bsky.app/*"],
+			js: ["src/index.ts"],
+			css: ["index.css"],
+		},
+	],
 });
 
 export default defineConfig({
