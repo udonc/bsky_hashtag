@@ -9,6 +9,7 @@ const linkHashtags = (element: HTMLElement) => {
 
 	for (const postTextElement of Array.from(postTextElements)) {
 		postTextElement.dataset.bskyHashtagLinker = "true";
+		postTextElement.classList.add("bsky-hashtag-linker__hashtag")
 
 		const text = postTextElement.innerHTML;
 		const replaced = replaceHashtags(text);
@@ -18,7 +19,6 @@ const linkHashtags = (element: HTMLElement) => {
 		const anchors = Array.from(postTextElement.querySelectorAll("a")); // Convert NodeListOf<HTMLAnchorElement> to an array
 
 		for (const anchor of anchors) {
-			anchor.classList.add("bsky-hashtag-linker__hashtag");
 			anchor.addEventListener("click", (event) => {
 				event.preventDefault();
 				event.stopPropagation();
