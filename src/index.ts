@@ -9,7 +9,6 @@ const linkHashtags = (element: HTMLElement) => {
 
 	for (const postTextElement of Array.from(postTextElements)) {
 		postTextElement.dataset.bskyHashtagLinker = "true";
-		postTextElement.classList.add("bsky-hashtag-linker__hashtag")
 
 		const text = postTextElement.innerHTML;
 		const replaced = replaceHashtags(text);
