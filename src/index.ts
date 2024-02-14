@@ -1,7 +1,7 @@
 import { replaceHashtags } from "./util";
 
 const postTextSelector =
-	'[data-testid="postText"]:not([data-bluesky-hashtag-linker="true"]), [data-testid^="postThreadItem"]:not([data-bluesky-hashtag-linker="true"]) > :last-child > :first-child > :first-child > :first-child';
+	'[data-word-wrap]:not([data-bluesky-hashtag-linker="true"])';
 
 const linkHashtags = (element: HTMLElement) => {
 	const postTextElements =
