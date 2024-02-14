@@ -1,7 +1,7 @@
 import { replaceHashtags } from "./util";
 
 const postTextSelector =
-	'[data-testid="postText"]:not([data-bluesky-hashtag-linker="true"]), [data-testid^="postThreadItem"]:not([data-bluesky-hashtag-linker="true"]) > :last-child > :first-child > :first-child > :first-child';
+	'div[data-word-wrap]:not([data-bluesky-hashtag-linker="true"]):not(:empty)';
 
 const linkHashtags = (element: HTMLElement) => {
 	const postTextElements =
@@ -18,7 +18,6 @@ const linkHashtags = (element: HTMLElement) => {
 		const anchors = Array.from(postTextElement.querySelectorAll("a")); // Convert NodeListOf<HTMLAnchorElement> to an array
 
 		for (const anchor of anchors) {
-			anchor.classList.add("bsky-hashtag-linker__hashtag");
 			anchor.addEventListener("click", (event) => {
 				event.preventDefault();
 				event.stopPropagation();

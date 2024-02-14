@@ -9,7 +9,7 @@ export const replaceHashtags = (text: string): string => {
 		const preHash = match.slice(0, hashIndex);
 		const postHash = match.slice(hashIndex + 1);
 
-		return `${preHash}<a role="link" data-word-wrap="1" href="/search?q=${postHash}">${match.slice(
+		return `${preHash}<a role="link" data-word-wrap="1" class="bsky-hashtag-linker__hashtag" href="/search?q=${postHash}">${match.slice(
 			preHash.length,
 		)}</a>`;
 	});
