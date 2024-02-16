@@ -5,7 +5,7 @@ const manifest = defineManifest({
 	manifest_version: 3,
 	description: "This extension will add a link to the Bluesky #hashtag",
 	name: "Bluesky Hashtag Linker",
-	version: "0.1.0",
+	version: "0.2.0",
 	action: {
 		default_title: "BlueSky Hashtag Linker",
 		default_popup: "src/popup.html",
@@ -21,7 +21,7 @@ const manifest = defineManifest({
 		32: "icons/icon_32.png",
 		64: "icons/icon_64.png",
 		128: "icons/icon_128.png",
-	}
+	},
 });
 
 export default defineConfig({
